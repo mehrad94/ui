@@ -1,5 +1,5 @@
 {
-  "name": "@tannazjahanshahi/ui",
+  "name": "@foo/pejvak-components",
   "version": "0.0.1",
   "description": "A personalized UI library",
   "main": "dist/cjs/index.js",
@@ -8,12 +8,15 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://www.npmjs.com/tannazjahanshahi"
+  },
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c",
     "test": "jest --watchAll --verbose"
   },
-  "author": "Tannaz j",
+  "author": "tannazjahanshahi",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -27,5 +30,6 @@
   },
   "dependencies": {
     "-": "^0.0.1"
-  }
+  },
+  "keywords": []
 }
