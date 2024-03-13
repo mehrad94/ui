@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import { UseFormRegister } from "react-hook-form";
 import "./index.css";
@@ -55,7 +57,6 @@ const Dropdown: React.FC<IDropdown> = ({
 
   return (
     <div dir={isRtl ? "rtl" : ""} className={wrapperClass}>
-      <div>
       <label
         className={`dropdown-label ${error ? "error" : ""}`}
         htmlFor={id}
@@ -65,40 +66,53 @@ const Dropdown: React.FC<IDropdown> = ({
         {required && <span className="required-star">*</span>}
       </label>
       <div className="custom-dropdown">
-        <div style={{ borderColor: borderColor }}
+        <div
+          style={{ borderColor: borderColor }}
           className={`dropdown-select ${isOpen ? "open" : ""} ${
             error ? "error" : ""
           }`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <div className="selected-option" >
+          <div className="selected-option">
             {selectedOption ? selectedOption.label : placeholder}
-          <MdArrowDropDown />
+            <MdArrowDropDown />
           </div>
-      </div>
-          {isOpen && (
-            <div className="options-container">
-              <input
-                type="text"
-                placeholder="جستجو ..."
-                className="dropdown-search"
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onClick={(e) => e.stopPropagation()}             
-              />
-              <div className="dropdown-options">
-                {filteredOptions.map((option) => (
-                  <div
-                    key={option.value}
-                    className="dropdown-option"
-                    onClick={() => handleSelectOption(option)}
-                  >
-                    {option.label}
-                  </div>
-                ))}
-              </div>
-            </div>
+          {register && ( // Check if register is provided
+            <select
+              id={id}
+              style={{ display: "none" }} // Hide the select element
+              {...register(id, { required })} // Register the select element with react-hook-form
+            >
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           )}
         </div>
+        {isOpen && (
+          <div className="options-container">
+            <input
+              type="text"
+              placeholder="جستجو ..."
+              className="dropdown-search"
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onClick={(e) => e.stopPropagation()}
+            />
+            <div className="dropdown-options">
+              {filteredOptions.map((option) => (
+                <div
+                  key={option.value}
+                  className="dropdown-option"
+                  onClick={() => handleSelectOption(option)}
+                >
+                  {option.label}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       {error && (
         <div className="dropdown-error">
