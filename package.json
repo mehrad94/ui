@@ -1,5 +1,5 @@
 {
-  "name": "@tannazjahanshahi/ui",
+  "name": "pejvak-ui",
   "version": "0.0.1",
   "description": "A personalized UI library",
   "main": "dist/cjs/index.js",
@@ -11,21 +11,39 @@
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c",
-    "test": "jest --watchAll --verbose"
+    "test": "jest --watchAll --verbose",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
-  "author": "Tannaz j",
+  "author": "2mdeveloper",
   "license": "MIT",
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.2.18",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/addon-links": "^8.0.0",
+    "@storybook/addon-onboarding": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/nextjs": "^8.0.0",
+    "@storybook/react": "^8.0.0",
+    "@storybook/test": "^8.0.0",
     "@types/react": "^18.2.65",
+    "postcss": "^8.4.35",
+    "react-hook-form": "^7.51.0",
+    "react-icons": "^5.0.1",
     "rollup": "^4.13.0",
     "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "storybook": "^8.0.0",
     "tslib": "^2.6.2",
     "typescript": "^5.4.2"
   },
   "dependencies": {
-    "-": "^0.0.1"
+    "-": "^0.0.1",
+    "react-hook-form": "^7.51.0",
+    "react-icons": "^5.0.1"
   }
 }
