@@ -1,0 +1,6 @@
+npm ERR! code ERR_SSL_SSLV3_ALERT_HANDSHAKE_FAILURE
+npm ERR! errno ERR_SSL_SSLV3_ALERT_HANDSHAKE_FAILURE
+npm ERR! request to https://registry.npmjs.org/hast-util-to-string/-/hast-util-to-string-3.0.0.tgz failed, reason: 201E0000:error:0A000410:SSL routines:ssl3_read_bytes:sslv3 alert handshake failure:c:\ws\deps\openssl\openssl\ssl\record\rec_layer_s3.c:1586:SSL alert number 40
+npm ERR! 
+
+npm ERR! A complete log of this run can be found in: C:\Users\tannaz\AppData\Local\npm-cache\_logs\2024-03-13T06_43_40_676Z-debug-0.log
