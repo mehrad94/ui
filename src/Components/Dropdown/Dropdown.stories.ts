@@ -24,12 +24,12 @@ const meta = {
   argTypes: {
     label: { type: "string" },
     id: { type: "string" },
-    options: { type: "string", control: false }, // Assuming options is an array of objects
-    onSelect: { action: "onSelect" }, // Assuming onSelect is a function
+    options: { type: "string", control: false },
+    onSelect: { action: "onSelect" }, 
     placeholder: { type: "string", defaultValue: "یک مورد را انتخاب کنید" },
-    error: { type: "string" }, // Assuming errors is an object
-    register: { control: false }, // Assuming register is not a user-input prop,
-    borderColor: { control: "color" }, // Add argType for border color
+    error: { type: "string" },
+    register: { control: false }, 
+    borderColor: { control: "color" }, 
     labelColor: { control: "color" }, 
   },
 } satisfies Meta<typeof Dropdown>;
@@ -41,10 +41,10 @@ export const Primary: Story = {
   args: {
     label: "gkjg",
     id: "gkg",
-    options: PROVINCE_DROP_DOWN, // Assuming options is an array of objects
+    options: PROVINCE_DROP_DOWN,
     placeholder: "jgkgj",
-    borderColor: "#000000", // Default border color
-    labelColor: "#4b5563", // Default label color
+    borderColor: "#000000", 
+    labelColor: "#4b5563", 
     onSelect: ()=>{},
     error: "error",
     isRtl: true,

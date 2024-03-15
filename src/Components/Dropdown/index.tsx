@@ -1,6 +1,4 @@
-"use client"
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { UseFormRegister } from "react-hook-form";
 import "./index.css";
 import { MdArrowDropDown } from "react-icons/md";
@@ -43,6 +41,24 @@ const Dropdown: React.FC<IDropdown> = ({
   const [selectedOption, setSelectedOption] = useState<IOption | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
+  useEffect(() => {
+    // Close the dropdown when clicking outside of it
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        event.target instanceof Element &&
+        !event.target.closest(".custom-dropdown")
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
   const handleSelectOption = (option: IOption) => {
     setSelectedOption(option);
     onSelect(option.value);
@@ -77,11 +93,11 @@ const Dropdown: React.FC<IDropdown> = ({
             {selectedOption ? selectedOption.label : placeholder}
             <MdArrowDropDown />
           </div>
-          {register && ( // Check if register is provided
+          {register && ( 
             <select
               id={id}
-              style={{ display: "none" }} // Hide the select element
-              {...register(id, { required })} // Register the select element with react-hook-form
+              style={{ display: "none" }}
+              {...register(id, { required })}
             >
               {options.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -100,6 +116,7 @@ const Dropdown: React.FC<IDropdown> = ({
               onChange={(e) => setSearchTerm(e.target.value)}
               onClick={(e) => e.stopPropagation()}
             />
+            <hr />
             <div className="dropdown-options">
               {filteredOptions.map((option) => (
                 <div
